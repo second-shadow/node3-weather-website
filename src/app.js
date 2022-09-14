@@ -8,6 +8,8 @@ const publicDirectoryPath = path.join(__dirname, '../public'); // __dirname , __
 const viewsPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
 
+const port = process.env.PORT || 3000; //Asignamos el puerto dado por heroku al levantar la aplicacion o un valor por defecto (3000)
+
 const geocode = require('./utils/geocode.js');
 const forecast = require('./utils/forecast.js');
 
@@ -22,7 +24,7 @@ app.use(express.static(publicDirectoryPath)); // static resource to be used
 
 console.log(publicDirectoryPath);
 
-//Devuelve la pagina por defecto --> lo reeemplazamos por index.hbs
+//Devuelve la pagina por defecto --> lo reemplazamos por index.hbs
 //app.get('', ( req, res )=>{  //Primer argumento de get es la ruta,  el segundo es la funcion que se ejecuta cuando alguie visita la url/ruta
 //  res.send('<h1>Hello world! via express</h1>');
 //  }
@@ -113,4 +115,4 @@ app.get('*', (req, res)=>{
 
 //Funcion que ejecuta el servidor
 //3000 puerto comunmente usado en dev, segundo arg una funcion que se ejecuta cuando el server esta corriendo
-app.listen(3000, () => { console.log('Server is up on port 3000.'); } );
+app.listen(port, () => { console.log('Server is up on port ' + port + '.'); } );

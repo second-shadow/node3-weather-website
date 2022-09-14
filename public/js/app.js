@@ -21,7 +21,7 @@ weatherForm.addEventListener('submit', (e)=>{
 
   console.log(location);
 
-  fetch('http://localhost:3000/weather?address='+ location).then((response)=>{
+  fetch('/weather?address='+ location).then((response)=>{
   if(!response){
     console.log('No response returned');
   }else{
