@@ -88,7 +88,7 @@ app.get('/weather', (req, res)=>{
 
     const forecastParam = { latitude: latitude, longitude: longitude };
 
-    forecast( forecastParam, (error, { forecast , temperature, feelslike } = {} ) => {
+    forecast( forecastParam, (error, { forecast , temperature, humidity, feelslike } = {} ) => {
       if(error){
         return res.send({ error });
       }
@@ -96,6 +96,7 @@ app.get('/weather', (req, res)=>{
       res.send({
         forecast,
         temperature,
+        humidity,
         feelslike,
         location,
         address: req.query.address

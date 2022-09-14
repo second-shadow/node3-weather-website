@@ -18,10 +18,12 @@ request( {url: url, json: true}, (error, response)=>{
       const forecast = response.body.current.weather_descriptions[0];
       const temperature = response.body.current.temperature;
       const feelslike = response.body.current.feelslike;
+      const humidity = response.body.current.humidity;
 
       const callbackParam = {
         forecast
         ,temperature
+        ,humidity
         ,feelslike
       };
 
